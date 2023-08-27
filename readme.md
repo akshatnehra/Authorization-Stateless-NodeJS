@@ -10,7 +10,7 @@
 * express
 * mongoose
 * bcrypt
-* jwt web token
+* json web token
 
 ### Sign Up Process
 
@@ -21,3 +21,18 @@
   * if unsuccessful -> return response
 * Insert new user in database
 * return response
+
+### Log In Process
+
+* Fetch user details from request body
+* Check if fields are blank.
+  * If YES, return response (Fill all required fields)
+* Validate if email is registered
+  * If NO, return respone (User not found)
+* Check if password is correct using bcrypt
+  * If NO, return response (Incorrect Password)
+* Create JWT
+  * Include payload, jwt-secret and expire time
+  * Add token to user object
+  * Remove password from user object
+  * Create cookie and send response
