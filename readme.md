@@ -47,4 +47,13 @@
   * req.user = decodedToken
 * Make a call to next middleware ( next() )
 
-> isStudent and isAdmin can extract details from "req.user.role" to verify is the user is student or admin and can handle accordingly.
+> isStudent and isAdmin can extract details from "req.user.role" to verify if the user is student or admin and can handle accordingly.
+
+### Ways to get token
+
+* request.cookies
+* request.body
+* request headers -> authorization
+  * Format -> "Bearer `<token>`"
+  * req.header("authorization").replace("Bearer ","")
+    * replace it with empty string so, now we have only token
