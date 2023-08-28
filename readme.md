@@ -36,3 +36,15 @@
   * Add token to user object
   * Remove password from user object
   * Create cookie and send response
+
+### Middleware
+
+* It has three parameters
+  * request, response next (next middleware to call after this)
+* Extract JWT token from req.body
+  * if token missing -> return response (token missing)
+* Verify token
+  * req.user = decodedToken
+* Make a call to next middleware ( next() )
+
+> isStudent and isAdmin can extract details from "req.user.role" to verify is the user is student or admin and can handle accordingly.
